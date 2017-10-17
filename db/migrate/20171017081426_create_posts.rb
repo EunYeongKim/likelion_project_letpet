@@ -3,6 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.text :content
       t.belongs_to :user
+      t.belongs_to :dog
       
       t.timestamps null: false
     end

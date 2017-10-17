@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="row">
+          <% @shelters.each do |shelter| %>
+                <div class="col cyan lighten-4" style="cursor:pointer" onclick="location.href='/shelters/<%= shelter.id %>';">
+                  <center>
+                    <%= shelter.s_name%><br/>
+                    <%= shelter.s_location%>
+                  </center>
+                </div>
+          <% end %>      
+    </div>
+</div>

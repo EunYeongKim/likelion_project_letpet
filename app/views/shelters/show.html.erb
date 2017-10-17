@@ -1,0 +1,22 @@
+<div class="container">
+    <%= @shelter.s_name %></br>
+    <%= @shelter.s_location %>
+</div>
+
+<div class="container">
+    <div class="row">
+          <% @Dogs.each do |dog| %>
+              <div class="col cyan lighten-4">
+                  <center>
+                    <%= dog.d_name%></br>
+                    <%= dog.sex%></br>
+                    <%= dog.age%>살</br>
+                    <%= dog.weight%>kg</br>
+                    <%= dog.species%></br>
+                    <%= dog.unusual%></br>
+                    <%= dog.d_day%></br>
+                  </center>
+              </div>
+          <% end %>      
+    </div>
+</div>

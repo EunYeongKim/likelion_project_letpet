@@ -1,0 +1,26 @@
+<div class="container"> 
+    <div class="row"> 
+        <div class="card col s12"> 
+            <div class="card-content"> 
+                <div class="card-title">보호소 작성하기</div> 
+                <%= form_tag shelters_path do %> 
+                    <div class="input-field"> 
+                    <%= text_area_tag :s_name, nil, class: "materialize-textarea", placeholder: "보호소 이름 작성" %> 
+                    </div>
+                    
+                    <div class="input-field"> 
+                    <%= text_area_tag :s_location, nil, class: "materialize-textarea", placeholder: "보호소 위치 작성" %> 
+                    </div>
+                    
+                    <div class="input-field"> 
+                    <%= text_area_tag :s_phone, nil, class: "materialize-textarea", placeholder: "보호소 전화번호 작성 ex) 02-0000-0000" %> 
+                    </div>
+                    
+                    <div class="input-field"> 
+                    <%= button_tag "작성하기", class: "btn" %> 
+                    </div> 
+                <% end %> 
+            </div> 
+        </div> 
+    </div> 
+</div>

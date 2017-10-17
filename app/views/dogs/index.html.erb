@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+          <% @dogs.each do |dog| %>
+              <div class="col cyan lighten-4">
+                  <center>
+                    <%= dog.d_name%></br>
+                    <%= dog.sex%></br>
+                    <%= dog.age%>살</br>
+                    <%= dog.weight%>kg</br>
+                    <%= dog.shelter_id%></br>
+                    <%= dog.species%></br>
+                    <%= dog.unusual%></br>
+                    <%= dog.d_day%></br>
+                  </center>
+              </div>
+          <% end %>      
+    </div>
+</div>

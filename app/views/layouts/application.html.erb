@@ -20,6 +20,8 @@
     <% if user_signed_in? %>
       <li><%= current_user.name + " 님"%></li>
       <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+      <li><a href="/shelters/new">보호소 추가</a></li>
+      <li><a href="/dogs/new">강아지 추가</a></li>
     <% else %>  
       <li><a href="/users/sign_in">로그인</li>
       <li><a href="/users/sign_up">회원가입</a></li>
@@ -58,6 +60,24 @@
 	    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
 	    return false;
 	} );
+	
+// 	materialize 옵션 선택
+    $(document).ready(function() {
+    $('select').material_select();
+  });
+     
+  // 데이트 픽커   
+  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false, // Close upon selecting a date
+    format: 'yyyy,mm,dd',
+    formatSubmit: 'yyyy/mm/dd'
+  });
+  
 </script>
 
 </body>

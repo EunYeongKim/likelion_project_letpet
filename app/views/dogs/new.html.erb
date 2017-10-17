@@ -1,0 +1,57 @@
+
+
+        <div class="container"> 
+            <div class="row"> 
+                <div class="card col s12"> 
+                    <div class="card-content"> 
+                        <div class="card-title">강아지 추가하기</div> 
+                        <%= form_tag dogs_path do %> 
+                             
+                             <label>보호소 선택</label>
+                              <select class="browser-default" name="shelter_id">
+                                <option value="" disabled selected>보호소를 선택해주세요</option>
+                                    <% @shelters.each do |shelter| %>
+                                      <option value="<%= shelter.id %>"><%= shelter.s_name %></option>
+                                    <% end %>
+                              </select>
+                        
+                            <div class="input-field"> 
+                            <%= text_area_tag :d_name, nil, class: "materialize-textarea", placeholder: "강아지 이름 작성" %> 
+                            </div>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :age, nil, class: "materialize-textarea", placeholder: "강아지 나이 작성(숫자만 작성)" %> 
+                            </div>
+                            
+                            <p>
+                              <input name="sex" type="radio" id="male" value="male"/>
+                              <label for="male">남자</label>
+                            </p>
+                            <p>
+                              <input name="sex" type="radio" id="female" value="female"/>
+                              <label for="female">여자</label>
+                            </p>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :weight, nil, class: "materialize-textarea", placeholder: "강아지 몸무게 작성(숫자만 작성)" %> 
+                            </div>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :species, nil, class: "materialize-textarea", placeholder: "강아지 종류 작성" %> 
+                            </div>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :unusual, nil, class: "materialize-textarea", placeholder: "특이사항 작성" %> 
+                            </div>
+                            
+                            <label>안락사 날짜</label>
+                            <input type="text" class="datepicker" name="d_day">
+
+                            <div class="input-field"> 
+                            <%= button_tag "작성하기", class: "btn" %> 
+                            </div> 
+                        <% end %> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
