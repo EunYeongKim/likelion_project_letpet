@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>LET PET</title>
+   <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+  <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      
+</head>
+<body>
+
+  <ul class="right">
+    <% if user_signed_in? %>
+      <li><%= current_user.name + " 님"%></li>
+      <li><%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %></li>
+    <% else %>  
+      <li><a href="/users/sign_in">로그인</li>
+      <li><a href="/users/sign_up">회원가입</a></li>
+    <% end %>  
+    
+  </ul>
+
+
+<div class = "logo">
+<center>
+  <a href="/"><img src ="../assets/logo.png" width="20%" ></a>
+</center> 
+
+</div>
+
+<%= yield %>
+
+
+
+<!--dy : top 버튼-->
+
+<img class = "topbtn" img src = "../assets/topbtn.png" align="right">
+
+<script>
+    <!--위로올라가기-->
+    $( window ).scroll( function() {
+	    if ( $( this ).scrollTop() > 100 ) {
+	        $( '.topbtn' ).fadeIn();
+	    }
+	    else {
+	        $( '.topbtn' ).fadeOut();
+	    }
+	} );
+	
+    $( '.topbtn' ).click( function() {
+	    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+	    return false;
+	} );
+</script>
+
+</body>
+
+
+
+ <!--dy: 카피라이터 & 푸터-->
+<footer>
+  <div class = "copyright">
+  <p>Copyright 2017. LETPET All rights reserved.</p>
+  </div>
+</footer>
+</html>
