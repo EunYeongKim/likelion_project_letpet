@@ -1,4 +1,7 @@
 <div class="container">
+    <% if @shelter.s_image.url %>
+        <img src="<%= @shelter.s_image.url %>" />
+    <% end %>
     <%= @shelter.s_name %></br>
     <%= @shelter.s_location %>
 </div>
@@ -8,6 +11,9 @@
           <% @Dogs.each do |dog| %>
               <div class="col cyan lighten-4">
                   <center>
+                    <% if dog.d_image.url %>
+                      <img src="<%= dog.d_image.url %>"/></br>
+                    <% end %>
                     <%= dog.d_name%></br>
                     <%= dog.sex%></br>
                     <%= dog.age%>살</br>
@@ -16,6 +22,9 @@
                     <%= dog.unusual%></br>
                     <%= dog.d_day%></br>
                   </center>
+                  <% if current_user.email == "admin@gmail.com" %>
+                    <%= link_to "수정", edit_dog_path(dog.id), class: "right" %>
+                  <% end %>
               </div>
           <% end %>      
     </div>

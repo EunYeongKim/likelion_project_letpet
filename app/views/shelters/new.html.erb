@@ -16,6 +16,12 @@
                     <%= text_area_tag :s_phone, nil, class: "materialize-textarea", placeholder: "보호소 전화번호 작성 ex) 02-0000-0000" %> 
                     </div>
                     
+                    <label>보호소 사진</label>
+                    <div class="input-field"> 
+                        <%= file_field_tag :s_image %> 
+                    </div>
+
+                    
                     <div class="input-field"> 
                     <%= button_tag "작성하기", class: "btn" %> 
                     </div> 

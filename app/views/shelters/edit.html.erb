@@ -1,0 +1,34 @@
+<div class="container"> 
+    <div class="row"> 
+        <div class="card col s12"> 
+            <div class="card-content"> 
+                <div class="card-title">보호소 수정하기</div> 
+                <%= form_tag shelter_path(@shelter), method: "patch", multipart: true do %> 
+                    <input type="hidden" name="id" value="<%= @shelter.id %>">
+                    
+                    <div class="input-field"> 
+                    <%= text_area_tag :s_name, @shelter.s_name, class: "materialize-textarea", placeholder: "보호소 이름 작성" %> 
+                    </div>
+                    
+                    <div class="input-field"> 
+                    <%= text_area_tag :s_location, @shelter.s_location, class: "materialize-textarea", placeholder: "보호소 위치 작성" %> 
+                    </div>
+                    
+                    <div class="input-field"> 
+                    <%= text_area_tag :s_phone, @shelter.s_phone, class: "materialize-textarea", placeholder: "보호소 전화번호 작성 ex) 02-0000-0000" %> 
+                    </div>
+                    
+                    <label>보호소 사진</label>
+                    <div class="input-field"> 
+                        <%= file_field_tag :s_image %> 
+                    </div>
+
+                    
+                    <div class="input-field"> 
+                    <%= button_tag "수정하기", class: "btn" %> 
+                    </div> 
+                <% end %> 
+            </div> 
+        </div> 
+    </div> 
+</div>

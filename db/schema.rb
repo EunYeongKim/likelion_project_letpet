@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017101112) do
+ActiveRecord::Schema.define(version: 20171018083614) do
 
   create_table "dogs", force: :cascade do |t|
     t.text     "d_name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20171017101112) do
     t.integer  "shelter_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "d_image"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -41,6 +42,7 @@ ActiveRecord::Schema.define(version: 20171017101112) do
     t.text     "s_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "s_image"
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(version: 20171017101112) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "avatar"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

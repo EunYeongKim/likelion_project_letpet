@@ -3,9 +3,15 @@
           <% @shelters.each do |shelter| %>
                 <div class="col cyan lighten-4" style="cursor:pointer" onclick="location.href='/shelters/<%= shelter.id %>';">
                   <center>
+                    <% if shelter.s_image.url %>
+                      <img src="<%= shelter.s_image.url %>" />
+                    <% end %>
                     <%= shelter.s_name%><br/>
                     <%= shelter.s_location%>
                   </center>
+                  <% if current_user.email == "admin@gmail.com" %>
+                    <%= link_to "수정", edit_shelter_path(shelter.id), class: "right" %>
+                  <% end %>
                 </div>
           <% end %>      
     </div>

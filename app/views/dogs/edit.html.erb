@@ -1,0 +1,79 @@
+        <div class="container"> 
+            <div class="row"> 
+                <div class="card col s12"> 
+                    <div class="card-content"> 
+                        <div class="card-title">강아지 수정하기</div> 
+                        <%= form_tag dog_path(@dog), method: "patch", multipart: true do %> 
+                            
+                            <input type="hidden" name="id" value="<%=@dog.id%>">
+                            <!--update액션에서 파라미터로 받아올 수 있음-->
+                            
+                             <label>보호소 선택</label>
+                             <!--원래 선택되어있던 보호소가 선택될 수 있도록 수정-->
+                              <select class="browser-default" name="shelter_id">
+                                <option value="" disabled selected>보호소를 선택해주세요</option>
+                                    <% @shelters.each do |shelter| %>
+                                      <% if @dog.shelter_id == shelter.id %>
+                                      <option value="<%= shelter.id %>" selected="selected"><%= shelter.s_name %></option>
+                                      <% else %>
+                                      <option value="<%= shelter.id %>"><%= shelter.s_name %></option>
+                                      <% end %>
+                                    <% end %>
+                              </select>
+                        
+                            <div class="input-field"> 
+                            <%= text_area_tag :d_name, @dog.d_name, class: "materialize-textarea", placeholder: "강아지 이름 작성" %> 
+                            </div>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :age, @dog.age, class: "materialize-textarea", placeholder: "강아지 나이 작성(숫자만 작성)" %> 
+                            </div>
+                            
+                            <% if @dog.sex == "male"%>
+                            <p>
+                              <input name="sex" type="radio" id="male" value="male" checked="checked"/>
+                              <label for="male">남자</label>
+                            </p>
+                            <p>
+                              <input name="sex" type="radio" id="female" value="female"/>
+                              <label for="female">여자</label>
+                            </p>
+                            <% else %>
+                            <p>
+                              <input name="sex" type="radio" id="male" value="male"/>
+                              <label for="male">남자</label>
+                            </p>
+                            <p>
+                              <input name="sex" type="radio" id="female" value="female" checked="checked"/>
+                              <label for="female">여자</label>
+                            </p>
+                            <% end %>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :weight, @dog.weight, class: "materialize-textarea", placeholder: "강아지 몸무게 작성(숫자만 작성)" %> 
+                            </div>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :species, @dog.species, class: "materialize-textarea", placeholder: "강아지 종류 작성" %> 
+                            </div>
+                            
+                            <div class="input-field"> 
+                            <%= text_area_tag :unusual, @dog.unusual, class: "materialize-textarea", placeholder: "특이사항 작성" %> 
+                            </div>
+                            
+                            <label>안락사 날짜</label>
+                            <input type="text" class="datepicker" name="d_day" value = <%= @dog.d_day %>>
+                                
+                            <label>강아지 사진</label>    
+                            <div class="input-field"> 
+                                <%= file_field_tag :d_image %> 
+                            </div>
+
+                            <div class="input-field"> 
+                            <%= button_tag "수정하기", class: "btn" %> 
+                            </div> 
+                        <% end %> 
+                    </div> 
+                </div> 
+            </div> 
+        </div>
